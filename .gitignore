@@ -4,3 +4,13 @@
 /.local
 /*.md
 /*.code-workspace
+/*.log
+/*.aux
+/*.fls
+/*.fdb*
+/*.gz
+/*.toc
+/.vmrc
+/.xinitrc
+/.zprofile
+Commands.txt
