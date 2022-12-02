@@ -1,0 +1,15 @@
+{
+    " name ": " semiconductors ",
+
+    " build ": {
+        "directory": ".",
+        "build": "pdflatex course.tex ",
+        "targets ": [
+            {
+                "name ": " all ",
+                "build_cmd ": " make "
+                "run_cmd ": "pdflatex ./course.tex "
+            }
+        ]
+    }
+}
