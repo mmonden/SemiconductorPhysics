@@ -232,9 +232,65 @@ The definition of a unit cell is illustrated in figure \ref{fig:unit_cell}
 \end{figure}
 
 \section{Primitive unit cell} \label{sec:prim_unit_cell}
+\dfn{Primitive unit cell}{A Primitive Unit Cell (PUC) is a unit cell that contains only one lattice parameter. By this is meant that when for example a cube is a primitive unit cell, each point counts as $\frac{1}{8}$, therefore the cube only has 1 lattice point.}
 
+We then see that:
+\begin{itemize}
+	\item 1D: line spanned by \textit{PLV} $\vec{a} \Rightarrow$ the line of the \textit{PUC} $= \norm{\vec{a}}$.
+	\item 2D: area spanned by \textit{PLV} $\vec{a}_1, \vec{a}_2 \Rightarrow$ the area of the \textit{PUC} $= \norm{\vec{a}_1 \times \vec{a}_2}$.
+	\item 3D: volume spanned by \textit{PLV} $\vec{a}_1, \vec{a}_2, \vec{a}_3 \Rightarrow$ the volume of the \textit{PUC} $= \vec{a}_1 \cdot \vec{a}_2 \times \vec{a}_3$.
+\end{itemize}
 
 \section{Conventional unit cell} \label{sec:conv_unit_cell}
 \dfn{Convetional unit cell}{A convenctional unit cell, a.k.a. a convinient unit cell, is a unit cell that contains mare than 1 lattice point but has perpendicular axis.}
+
 \section{Weigner-Seitz unit cell} \label{sec:weig_cell}
-d
+\dfn{Weigner-Seitz unit cell}{A Weigner-Seitz unit cell is a primitive unit cell that has a region of space around a lattice point such that any point around that lattice point is closer to that lattice point as any other lattice point.}
+
+This concept is furhter elaborated below. The correspoding figure for a 2D example is seen in figure \ref{fig:elaboration}.
+
+\begin{enumerate}
+	\setlength\itemsep{0pt}
+	\item Take any lattice point (green in this case).
+	\item Look for the nearest lattice point and draw a line between them (in gray).
+	\item Draw the bissecting, perpendicular on this first line (in blue).
+	\item Do this for all other nearby lattice points (in cyan).
+\end{enumerate}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\filldraw [black]	(0,0) circle (2pt)
+							(1,0) circle (2pt)
+							(2,0) circle (2pt)
+							(3,0) circle (2pt)
+							(4,0) circle (2pt)
+							(5,0) circle (2pt)
+							(6,0) circle (2pt)
+							(0,1) circle (2pt)
+							(1,1) circle (2pt)
+							(2,1) circle (2pt)
+							(4,1) circle (2pt)
+							(5,1) circle (2pt)
+							(6,1) circle (2pt)
+							(0,2) circle (2pt)
+							(1,2) circle (2pt)
+							(2,2) circle (2pt)
+							(3,2) circle (2pt)
+							(4,2) circle (2pt)
+							(5,2) circle (2pt)
+							(6,2) circle (2pt);
+
+		\filldraw [green]	(3,1) circle (2pt);
+
+		\draw [loosely dotted, gray] 	(-0.4, 1) to (6.4, 1);
+
+		\draw [densely dotted, blue] 	(2.5, -0.4) to (2.5, 2.4);
+
+		\draw [densely dotted, cyan]	(-0.4, 1.5) to (6.4, 1.5);
+		\draw [densely dotted, cyan]	(3.5, -0.4) to (3.5, 2.4);
+		\draw [densely dotted, cyan]	(-0.4, 0.5) to (6.4, 0.5);
+	\end{tikzpicture}
+	\caption{2D example for Weigner-Seitz unit cell}
+	\label{fig:elaboration}
+\end{figure}
