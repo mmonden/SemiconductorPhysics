@@ -1,0 +1,299 @@
+\chapter{Periodic Structure of Crystals}
+\section{Bravais lattices}
+\dfn{Bravais latticees}{There are 14 different lattice types, these are called Bravais lattices. These lattices can be subdivided into 7 different lattice systems, these lattice systems are:
+\begin{enumerate}
+    \setlength\itemsep{0pt}
+    \item   Triclinic
+    \item   Monoclinic
+    \item   Orthohombric
+    \item   Tetragonal
+    \item   Cubic
+    \item   Triagonal
+    \item   Hexagonal
+\end{enumerate}
+The Cubic structure will mostly be studied during this course.
+}
+
+\section{Cubic lattice systems}
+Cubic lattice systems come in three flavours, we will define them here. The different systems can be found in figure \ref{fig:cubic_lattice_systems}.
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+		%	Bottom front
+		\filldraw [black]	(0, 0) circle (2pt);
+		\draw [-*, black]	(0, 0) to (1, 0);
+
+		%	Top front
+		\filldraw [black]	(0, 1) circle (2pt);
+		\draw [-*, black]	(0, 1) to (1, 1);
+
+		%	Horzontal front
+		\draw[--, black]	(0, 0) to (0, 1)
+							(0.9, 0) to (0.9, 1);
+
+		%	Top oblique
+		\draw[-*, black]	(0, 1) to (0.55, 1.5);
+		\draw[-*, black]	(0.9, 1) to (1.45, 1.5);
+
+		%	Side right
+		\draw[-*, black]	(1.4, 1.5) to (1.4, 0.4);
+		\draw[--, black]	(0.9, 0) to (1.4, 0.5);
+
+		%	Top back
+		\draw[--, black]	(0.4, 1.45) to (1.4, 1.45);
+
+		%	Inside
+		\draw[dotted, black]	(0.5, 0.5) to (1.4, 0.5)
+                                (0.5, 0.5) to (0, 0)
+								(0.5, 1.5) to (0.5, 0.5);
+		\filldraw[black]	(0.5, 0.5) circle (1pt);
+
+ 		\draw [<->, black, thick]	(0, -0.3) to node [below] {a} (0.9, -0.3);
+ 		\draw [<->, black, thick]	(1.7, 0.5) to node [right] {a} (1.7, 1.5);
+ 		\draw [<->, black, thick]	(1.1, -0.1) to node [below=1mm] {a} (1.6, 0.4);
+	\end{tikzpicture}
+%
+	\begin{tikzpicture}
+		%	Bottom front
+		\filldraw [black]	(0, 0) circle (2pt);
+		\draw [-*, black]	(0, 0) to (1, 0);
+
+		%	Top front
+		\filldraw [black]	(0, 1) circle (2pt);
+		\draw [-*, black]	(0, 1) to (1, 1);
+
+		%	Horzontal front
+		\draw[--, black]	(0, 0) to (0, 1)
+							(0.9, 0) to (0.9, 1);
+
+		%	Top oblique
+		\draw[-*, black]	(0, 1) to (0.55, 1.5);
+		\draw[-*, black]	(0.9, 1) to (1.45, 1.5);
+
+		%	Side right
+		\draw[-*, black]	(1.4, 1.5) to (1.4, 0.4);
+		\draw[--, black]	(0.9, 0) to (1.4, 0.5);
+
+		%	Top back
+		\draw[--, black]	(0.4, 1.45) to (1.4, 1.45);
+
+		%	Inside
+		\draw[dotted, black]	(0.5, 0.5) to (1.4, 0.5)
+                                (0.5, 0.5) to (0, 0)
+								(0.5, 1.5) to (0.5, 0.5);
+		\filldraw[black]	(0.5, 0.5) circle (1pt);
+
+		% Body centering
+		\filldraw [gray] (0.7, 0.7) circle (2pt);
+
+ 		\draw [<->, black, thick]	(0, -0.3) to node [below] {a} (0.9, -0.3);
+ 		\draw [<->, black, thick]	(1.7, 0.5) to node [right] {a} (1.7, 1.5);
+ 		\draw [<->, black, thick]	(1.1, -0.1) to node [below=1mm] {a} (1.6, 0.4);
+	\end{tikzpicture}
+%
+	\begin{tikzpicture}
+		%	Face centering
+		\filldraw [gray]	(0.95, 0.95) circle (2pt);
+
+		%	Bottom front
+		\filldraw [black]	(0, 0) circle (2pt);
+		\draw [-*, black]	(0, 0) to (1, 0);
+
+		%	Top front
+		\filldraw [black]	(0, 1) circle (2pt);
+		\draw [-*, black]	(0, 1) to (1, 1);
+
+		%	Horzontal front
+		\draw[--, black]	(0, 0) to (0, 1)
+							(0.9, 0) to (0.9, 1);
+
+		%	Top oblique
+		\draw[-*, black]	(0, 1) to (0.55, 1.5);
+		\draw[-*, black]	(0.9, 1) to (1.45, 1.5);
+
+		%	Side right
+		\draw[-*, black]	(1.4, 1.5) to (1.4, 0.4);
+		\draw[--, black]	(0.9, 0) to (1.4, 0.5);
+
+		%	Top back
+		\draw[--, black]	(0.4, 1.45) to (1.4, 1.45);
+
+		%	Inside
+		\draw[dotted, black]	(0.5, 0.5) to (1.4, 0.5)
+                                (0.5, 0.5) to (0, 0)
+								(0.5, 1.5) to (0.5, 0.5);
+		\filldraw[black]	(0.5, 0.5) circle (1pt);
+
+		% Face centering
+		\filldraw [gray]	(0.5, 0.5) circle (2pt)
+							(0.25, 0.75) circle (2pt)
+							(0.7, 1.25) circle (2pt)
+ 							(0.7, 0.25) circle (2pt)
+ 							(1.15, 0.7) circle (2pt);
+
+ 		\draw [<->, black, thick]	(0, -0.3) to node [below] {a} (0.9, -0.3);
+ 		\draw [<->, black, thick]	(1.7, 0.5) to node [right] {a} (1.7, 1.5);
+ 		\draw [<->, black, thick]	(1.1, -0.1) to node [below=1mm] {a} (1.6, 0.4);
+	\end{tikzpicture}
+    \caption{The three different cubic lattice systems}
+    \label{fig:cubic_lattice_systems}
+\end{figure}
+\dfn{Simple cubic lattice}{A simple cubic lattice is a conventional unit cell and therefore also a \textit{PUC}. This lattice has a straightforward basis, as can be seen in figure \ref{fig:simple_cubic_lattice}.}
+The basis chosen is $\{\vec{a}_1, \vec{a}_2, \vec{a}_3\}$. As we can see (figure \ref{fig:simple_cubic_lattice}), the basis isn't body centered. Because the body centered atom is a different one as the other 'side' atoms, the smallest possible unit cell (or \textit{PUC}) is the full cube. Whereas if the middle atom is the same, the basis is chosen in the middle, this is the \textbf{body centered cubic lattice}.
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+		%	Bottom front
+		\filldraw [black]	(0, 0) circle (2pt);
+		\draw [-*, black]	(0, 0) to (1, 0);
+
+		%	Top front
+		\filldraw [black]	(0, 1) circle (2pt);
+		\draw [-*, black]	(0, 1) to (1, 1);
+
+		%	Horzontal front
+		\draw[--, black]	(0, 0) to (0, 1)
+							(0.9, 0) to (0.9, 1);
+
+		%	Top oblique
+		\draw[-*, black]	(0, 1) to (0.55, 1.5);
+		\draw[-*, black]	(0.9, 1) to (1.45, 1.5);
+
+		%	Side right
+		\draw[-*, black]	(1.4, 1.5) to (1.4, 0.4);
+		\draw[--, black]	(0.9, 0) to (1.4, 0.5);
+
+		%	Top back
+		\draw[--, black]	(0.4, 1.45) to (1.4, 1.45);
+
+		%	Inside
+		\draw[dotted, black]	(0.5, 0.5) to (1.4, 0.5)
+                                (0.5, 0.5) to (0, 0)
+								(0.5, 1.5) to (0.5, 0.5);
+		\filldraw[black]	(0.5, 0.5) circle (1pt);
+
+		% Body centering
+		\filldraw [cyan] (0.7, 0.7) circle (2pt);
+
+		\draw [->, cyan, thin]	(0.7, 0.7) to node [right=9mm]{different atom} (2.4, 0.7);
+
+ 		\draw [<->, black, thick]	(0, -0.3) to node [below] {a} (0.9, -0.3);
+ 		\draw [<->, black, thick]	(1.7, 0.5) to node [right] {a} (1.7, 1.5);
+ 		\draw [<->, black, thick]	(1.1, -0.1) to node [below=1mm] {a} (1.6, 0.4);
+
+ 		%	Basis
+ 		\draw [|->, green, very thick]	(0, 0) to (0.9, 0);
+ 		\draw [|->, red, very thick]	(0, 0) to (0, 1);
+ 		\draw [|->, blue, very thick]	(0, 0) to (0.48, 0.48);
+	\end{tikzpicture}
+	\caption{The basis for a simple cubic lattice}
+	\label{fig:simple_cubic_lattice}
+\end{figure}
+
+\dfn{Body centered cubic lattice}{A Body centered cubic lattice has 1 atom as primitive unit cell, its basis is depectied in figure \ref{fig:bodycubic_lattice_system}. As mentioned before, all atoms are the same and that is why the \textit{PUC} is smaller.}
+\begin{figure}[h]
+    \centering
+	\begin{tikzpicture}
+		%	Bottom front
+		\filldraw [black]	(0, 0) circle (2pt);
+		\draw [-*, black]	(0, 0) to (1, 0);
+
+		%	Top front
+		\filldraw [black]	(0, 1) circle (2pt);
+		\draw [-*, black]	(0, 1) to (1, 1);
+
+		%	Horzontal front
+		\draw[--, black]	(0, 0) to (0, 1)
+							(0.9, 0) to (0.9, 1);
+
+		%	Top oblique
+		\draw[-*, black]	(0, 1) to (0.55, 1.5);
+		\draw[-*, black]	(0.9, 1) to (1.45, 1.5);
+
+		%	Side right
+		\draw[-*, black]	(1.4, 1.5) to (1.4, 0.4);
+		\draw[--, black]	(0.9, 0) to (1.4, 0.5);
+
+		%	Top back
+		\draw[--, black]	(0.4, 1.45) to (1.4, 1.45);
+
+		%	Inside
+		\draw[dotted, black]	(0.5, 0.5) to (1.4, 0.5)
+                                (0.5, 0.5) to (0, 0)
+								(0.5, 1.5) to (0.5, 0.5);
+		\filldraw[black]	(0.5, 0.5) circle (1pt);
+
+		% Body centering
+		\filldraw [gray] (0.7, 0.7) circle (2pt);
+
+ 		\draw [<->, black, thick]	(0, -0.3) to node [below] {a} (0.9, -0.3);
+ 		\draw [<->, black, thick]	(1.7, 0.5) to node [right] {a} (1.7, 1.5);
+ 		\draw [<->, black, thick]	(1.1, -0.1) to node [below=1mm] {a} (1.6, 0.4);
+
+ 		%	Basis
+ 		\draw [|->, green, very thick]	(0.7, 0.7) to (0.05, 0.05);
+ 		\draw [|->, red, very thick]	(0.7, 0.7) to (1.4, 0.5);
+ 		\draw [|->, blue, very thick]	(0.7, 0.7) to (1, 1);
+	\end{tikzpicture}
+    \caption{The three different cubic lattice systems}
+    \label{fig:bodycubic_lattice_system}
+\end{figure}
+
+\dfn{Face centered cubic lattice}{If all atoms are the same and the extra atoms position themselves on the middle of every face, one gets the face centere cubic lattice. This is depicted in figure \ref{fig:facecubic_lattice_system}.}
+\begin{figure}[h]
+    \centering
+	\begin{tikzpicture}
+		%	Face centering
+		\filldraw [gray]	(0.95, 0.95) circle (2pt);
+
+		%	Bottom front
+		\filldraw [black]	(0, 0) circle (2pt);
+		\draw [-*, black]	(0, 0) to (1, 0);
+
+		%	Top front
+		\filldraw [black]	(0, 1) circle (2pt);
+		\draw [-*, black]	(0, 1) to (1, 1);
+
+		%	Horzontal front
+		\draw[--, black]	(0, 0) to (0, 1)
+							(0.9, 0) to (0.9, 1);
+
+		%	Top oblique
+		\draw[-*, black]	(0, 1) to (0.55, 1.5);
+		\draw[-*, black]	(0.9, 1) to (1.45, 1.5);
+
+		%	Side right
+		\draw[-*, black]	(1.4, 1.5) to (1.4, 0.4);
+		\draw[--, black]	(0.9, 0) to (1.4, 0.5);
+
+		%	Top back
+		\draw[--, black]	(0.4, 1.45) to (1.4, 1.45);
+
+		%	Inside
+		\draw[dotted, black]	(0.5, 0.5) to (1.4, 0.5)
+                                (0.5, 0.5) to (0, 0)
+								(0.5, 1.5) to (0.5, 0.5);
+		\filldraw[black]	(0.5, 0.5) circle (1pt);
+
+		% Face centering
+		\filldraw [gray]	(0.5, 0.5) circle (2pt)
+							(0.25, 0.75) circle (2pt)
+							(0.7, 1.25) circle (2pt)
+ 							(0.7, 0.25) circle (2pt)
+ 							(1.15, 0.7) circle (2pt);
+
+ 		\draw [<->, black, thick]	(0, -0.3) to node [below] {a} (0.9, -0.3);
+ 		\draw [<->, black, thick]	(1.7, 0.5) to node [right] {a} (1.7, 1.5);
+ 		\draw [<->, black, thick]	(1.1, -0.1) to node [below=1mm] {a} (1.6, 0.4);
+
+ 		%	Basis
+ 		\draw [|->, red, very thick]	(0, 0) to (0.25, 0.75);
+ 		\draw [|->, blue, very thick]	(0, 0) to (0.7, 0.25);
+		\draw [|->, green, very thick]	(0, 0) to (0.5, 0.5);
+	\end{tikzpicture}
+    \caption{The three different cubic lattice systems}
+    \label{fig:facecubic_lattice_system}
+\end{figure}
+
+\section{C/Si/Ge - lattice systems}
+As we know, the lattice systems for C, Si and Ge have a diamond lattice structre. This diamond structure takes the form of a fcc (face centered cubic) lattice.

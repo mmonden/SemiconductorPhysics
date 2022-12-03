@@ -7,6 +7,13 @@
 \usepackage[most]{tcolorbox}
 \usepackage{graphicx}
 
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+% \newcommandx{\unsure}{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+% \newcommandx{\change}{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+% \newcommandx{\info}{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+% \newcommandx{\improvement}{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+% \newcommandx{\thiswillnotshow}{\todo[disable,#1]{#2}}
+
 \title{\Huge{Semiconductor Physics}\\Lectures}
 \author{\huge{mmonden}}
 \date{}
@@ -17,10 +24,14 @@
 \newpage% or \cleardoublepage
 % \pdfbookmark[<level>]{<title>}{<dest>}
 \pdfbookmark[section]{\contentsname}{toc}
+
+\listoftodos[Notes]
+
 \tableofcontents
 \pagebreak
 
 \input{./chapter1.tex}
+\input{./chapter2.tex}
 \input{./chapter5.tex}
 \input{./chapter6.tex}
 
