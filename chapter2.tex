@@ -296,4 +296,90 @@ The basis chosen is $\{\vec{a}_1, \vec{a}_2, \vec{a}_3\}$. As we can see (figure
 \end{figure}
 
 \section{C/Si/Ge - lattice systems}
-As we know, the lattice systems for C, Si and Ge have a diamond lattice structre. This diamond structure takes the form of a fcc (face centered cubic) lattice.
+As we know, the lattice systems for C, Si and Ge have a diamond lattice structre. This diamond structure takes the form of a fcc (face centered cubic) lattice. In figure \ref{fig:diamondstruct}, one can see the primitive unit cell. The basis vectors are:
+\begin{align}
+	\vec{a}_1 &= (\frac{1}{2}, \frac{1}{2}, 0) \\
+	\vec{a}_2 &= (0, \frac{1}{2}, \frac{1}{2}) \\
+	\vec{a}_3 &= (\frac{1}{2}, 0, \frac{1}{2})
+\end{align}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth/2]{./diamondstructure}
+	\caption{The diamond structure and its \textit{PUC}}
+	\label{fig:diamondstruct}
+\end{figure}
+
+\subsection{Translation symmetry}
+As a tiny intermezzo I'll introduce tranlation symmetry. This will be important later on for solving the Schrödinger equation.
+\begin{align}
+	& \left\{-\frac{\hbar}{2m}\nabla^2 + V(\vec{r})\right\}\phi(\vec{r}) = E\phi(\vec{r}) \\
+	& \qquad \longrightarrow V(\vec{r} + \vec{T}) = V(\vec{r}') = V(\vec{r})
+\end{align}
+Because $V(\vec{r})$ is actually a periodic function in a crystal lattice, it becomes $V(\vec{r} + \vec{T})$. This $\vec{T}$ is responsible for the translation in translational symmetry.
+\dfn{Translational symmetry}{Translational symmetry is a symmetry operation for a crystal. This operation leaves the crystal invariant. Meaning that the addition of $\vec{T}$ to $\vec{r}$ returns the same value for $V(\vec{r})$. This is graphically represented in figure \ref{fig:trans_symm}.}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw [->, black]	(0, 0, 0) to (0, 0, 4) node[anchor=north east]{$x$};
+		\draw [->, black]	(0, 0, 0) to (0, 4, 0) node[above]{$z$};
+		\draw [->, black]	(0, 0, 0) to (4, 0, 0) node[right]{$y$};
+
+		\draw [->, blue, very thick]	(0, 0, 0) to (4, 3, 2) node[left=5mm]{$\vec{r}$};
+		\draw [->, green, very thick]	(4, 3, 2) to (5, 2, 2) node[above=3mm]{$\vec{T}$};
+		\draw [->, red, very thick]		(0, 0, 0) to (5, 2, 2) node[left=5mm]{$\vec{r}'$}
+	\end{tikzpicture}
+	\caption{Translational symmetry}
+	\label{fig:trans_symm}
+\end{figure}
+
+\section{Lattice dimensions}
+\dfn{Lattice dimensions}{Lattice dimensions are defined by the parameters [$u, v, w$]. These parameters are defined by a vector $\vec{r} = k(u\vec{a}_1 + v\vec{a}_2 + w\vec{a}_3)$. \\
+$\vec{a}_1, \vec{a}_2, \vec{a}_3$ are unit cell vectors, $k$ is a common factor in order that $u, v, w \in \bbZ_{without\, common\, factor}$. \\
+One thing to notice is that if $\vec{a}_1, \vec{a}_2, \vec{a}_3$ are \textit{PLV}s, $k \in \bbZ$. Else $k \in \bbQ$.}
+\ex{Lattice dimensions}{
+Take the following vector in the lattice:
+
+\begin{center}
+	\begin{tikzpicture}
+		\draw [->, gray]	(0, 0, 0) to (0, 0, 4) node[anchor=north east]{$x$};
+		\draw [->, gray]	(0, 0, 0) to (0, 4, 0) node[above]{$z$};
+		\draw [->, gray]	(0, 0, 0) to (4, 0, 0) node[right]{$y$};
+
+		\draw [->, blue, very thick]	(0, 0, 0) to (1.95, 1.95, 0);
+
+		\filldraw [gray]	(0, 0, 0) circle (2pt);
+
+		\draw [dotted, black]	(0, 0, 0) to (0, 0, 2);
+		\draw [dotted, black]	(0, 0, 0) to (0, 2, 0);
+		\draw [dotted, black]	(0, 0, 0) to (2, 0, 0);
+
+		\draw [-, black]	(2, 0, 0) to (2, 0, 2);
+		\draw [-, black]	(0, 0, 2) to (2, 0, 2);
+
+		\draw [-, black]	(0, 0, 2) to (0, 2, 2);
+		\draw [-, black]	(2, 0, 2) to (2, 2, 2);
+		\draw [-, black]	(2, 0, 0) to (2, 2, 0);
+
+		\draw [-, black]	(0, 2, 0) to (0, 2, 2);
+		\draw [-, black]	(0, 2, 2) to (2, 2, 2);
+		\draw [-, black]	(2, 2, 0) to (2, 2, 2);
+		\draw [-, black]	(0, 2, 0) to (2, 2, 0);
+
+		\filldraw	(0, 2, 0) circle (2pt)
+					(2, 0, 2) circle (2pt)
+					(2, 0, 0) circle (2pt)
+					(2, 2, 2) circle (2pt)
+					(0, 2, 2) circle (2pt)
+					(2, 2, 0) circle (2pt)
+					(0, 0, 2) circle (2pt);
+	\end{tikzpicture}
+\end{center}
+
+Then the vector can be denoted as [$0, 1, 1$].
+}
+\nt{If one of $u, v, w$ is negative, remove the $-$ and add a bar on top, i.e., $-x = \bar{x}$.}
+
+\section{Lattice planes}
+\dfn{Lattice planes}{Lattice planes are defined by the parameters [$h, k, l$]}
