@@ -310,7 +310,7 @@ As we know, the lattice systems for C, Si and Ge have a diamond lattice structre
 	\label{fig:diamondstruct}
 \end{figure}
 
-\subsection{Translation symmetry}
+\subsection{Translation symmetry} \label{sec:trans_symm}
 As a tiny intermezzo I'll introduce tranlation symmetry. This will be important later on for solving the Schrödinger equation.
 \begin{align}
 	& \left\{-\frac{\hbar}{2m}\nabla^2 + V(\vec{r})\right\}\phi(\vec{r}) = E\phi(\vec{r}) \\
@@ -379,7 +379,71 @@ Take the following vector in the lattice:
 
 Then the vector can be denoted as [$0, 1, 1$].
 }
+
+As one might, rightly so, notice is that some directions have the same symmetry. What about labeling these directions? First, what do we mean with `same directions'? \\ The concept is demonstrated in figure \ref{fig:same_symm}, where $\vec{a}$ and $\vec{b}$ have the same symmetry. This is because the red lattice points in this cyrstal see each surrounding lattice point in exactly the same way, therefore symmetry is the same.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+		\draw [->, gray]	(0, 0, 0) to (0, 0, 4) node[anchor=north east]{$x$};
+		\draw [->, gray]	(0, 0, 0) to (0, 4, 0) node[above]{$z$};
+		\draw [->, gray]	(0, 0, 0) to (4, 0, 0) node[right]{$y$};
+
+		\draw [dotted, cyan]	(-2, -2, 0) to (4, 4, 0);
+		\draw [->, blue, very thick]	(0, 0, 0) to node [left=3mm]{$\vec{a}$} (1.95, 1.95, 0);
+
+		\draw [dotted, cyan]	(-2, 0, -2) to (4, 0, 4);
+		\draw [->, blue, very thick]	(0, 0, 0) to node [left=3mm]{$\vec{b}$} (1.95, 0, 1.95);
+
+		\filldraw [gray]	(0, 0, 0) circle (2pt);
+
+		\draw [dotted, black]	(0, 0, 0) to (0, 0, 2);
+		\draw [dotted, black]	(0, 0, 0) to (0, 2, 0);
+		\draw [dotted, black]	(0, 0, 0) to (2, 0, 0);
+
+		\draw [-, black]	(2, 0, 0) to (2, 0, 2);
+		\draw [-, black]	(0, 0, 2) to (2, 0, 2);
+
+		\draw [-, black]	(0, 0, 2) to (0, 2, 2);
+		\draw [-, black]	(2, 0, 2) to (2, 2, 2);
+		\draw [-, black]	(2, 0, 0) to (2, 2, 0);
+
+		\draw [-, black]	(0, 2, 0) to (0, 2, 2);
+		\draw [-, black]	(0, 2, 2) to (2, 2, 2);
+		\draw [-, black]	(2, 2, 0) to (2, 2, 2);
+		\draw [-, black]	(0, 2, 0) to (2, 2, 0);
+
+		\filldraw	(0, 2, 0) circle (2pt)
+					(2, 0, 0) circle (2pt)
+					(2, 2, 2) circle (2pt)
+					(0, 2, 2) circle (2pt)
+					(0, 0, 2) circle (2pt);
+
+		\filldraw [red]		(2, 0, 2) circle (2pt)
+							(2, 2, 0) circle (2pt);
+\end{tikzpicture}
+\caption{Demonstration of vectors with the same symmetry}
+\label{fig:same_symm}
+\end{figure}
 \nt{If one of $u, v, w$ is negative, remove the $-$ and add a bar on top, i.e., $-x = \bar{x}$.}
+These equivalent directions are denoted as $<u, v, w>$ where [$u, v, w$] is the dirction of one of these directions that share symmetry.
 
 \section{Lattice planes}
-\dfn{Lattice planes}{Lattice planes are defined by the parameters [$h, k, l$]}
+\dfn{Lattice planes}{Lattice planes are defined by the parameters [$h, k, l$]. These parameters are called \textbf{Miller Indices (MI)} and describe a crystal plane that contain at least 3 non colinear lattice points.}
+\clm{Property of lattice planes}{}{Lattice planes are an infinite set of parallel planes which are equally spaced and contain ALL lattice points.}
+\qs{How do we calculate these points?}{
+To calculate $h, k, l$ we:
+\begin{enumerate}
+	\setlength\itemsep{0pt}
+	\item Take a unit cell ($\vec{a}_1, \vec{a}_2, \vec{a}_3$) with its lattice point in the origin.
+	\item Let the lattice plane intersect the axis along $\vec{a}_1, \vec{a}_2, \vec{a}_3$ in $n\cdot\vec{a}_1, m\cdot\vec{a}_2, p\cdot\vec{a}_3$. $n, m, p \in \bbQ$.
+	\item See that the lattice plane does not intersect the origin.
+	\tiem Finally take the reciprocal of $n, m, p$ and multiply with the least common multiple $\gamma$.
+	\begin{align}
+		h &= \frac{1}{n}\gamma \\
+		k &= \frac{1}{m}\gamma \\
+		l &= \frac{1}{p}\gamma
+	\end{align}
+	This last step defines a vector perpendicular ont he plane, which is how one defines a plane.
+\end{enumerate}
+}
+\nt{We use a $0$ for $h, k, l$ if the plane is perpendicular to that direction.}

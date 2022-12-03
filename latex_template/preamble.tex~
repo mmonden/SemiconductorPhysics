@@ -42,7 +42,7 @@
 }
 
 \usepackage{tikzsymbols}
-\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand\qedsymbol{$\Laughey$}
 
 
 %\usepackage{import}
@@ -775,3 +775,4 @@
 	  \end{tikzpicture}}%
 	\@starttoc{toc}}
 \makeatother
+
