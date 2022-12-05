@@ -21,9 +21,34 @@ Becuase the scattering is elastic we can state the following, define the wave as
 	&\Rightarrow \abs{\vec{k}} = \abs{\vec{k}'}
 \end{align}
 One way of figuring out if an electron is scattered is to use the Fermi golden rule.
-\section{Fermi golden rule}
-abc
 
+\section{Fermi golden rule}
+\dfn{The fermi golden rule}{The fermi golden rule states that ($\tau_{\vec{k} \rightarrow \vec{k}'}$ is the mean time to have a diffraction):
+\begin{equation}
+	\frac{1}{\tau_{\vec{k} \rightarrow \vec{k}'}} = \frac{2\pi}{\hbar}\abs{<\vec{k}|V(\vec{r})|\vec{k}'>}^2\delta(E(\vec{k}) - E(\vec{k}'))
+\end{equation}
+}
+We will look a bit further into this equation. We know that $V(\vec{r})=$ a periodic potential field of the crystal. Then
+\begin{align}
+	<\vec{k}|V(\vec{r})|\vec{k}'> \quad &= \int_{V}^{}d\vec{r}\frac{1}{\sqrt{V}}e^{i\vec{k}\cdot\vec{r}}V(\vec{r})\frac{1}{\sqrt{V}}e^{-i\vec{k}\cdot\vec{r}} \label{eqn:constants}\\
+	&= \frac{1}{V}\sum_{\vec{R}}^{}\int_{\text{unit cell}}^{}d\vec{r}V(\vec{r}+\vec{R})e^{i(\vec{k}-\vec{k}')\cdot(\vec{r}+\vec{R})} \label{eqn:periodicity}
+\end{align}
+Equation \ref{eqn:constants} has normalization constants $\frac{1}{\sqrt{V}}$. Furthermore, in equation \ref{eqn:periodicity} we exploit hte periodicity of $V(\vec{r})$ and translation symmetry (section \ref{sec:trans_symm}). When is this integral in equation \ref{eqn:periodicity} non-zero?
+\begin{equation}
+	\text{The integral is non-zero } \iff \vec{k} - \vec{k}' = \vec{G} \text{ (the reciprocal lattice vector)} \label{eqn:Bragg_condition}
+\end{equation}
+By symmetry, we can leave $\vec{R}$ out of equation \ref{eqn:periodicity}, we get:
+\begin{align}
+	<\vec{k}|V(\vec{r})|\vec{k}'> \quad &= \frac{1}{V}\sum_{\vec{R}}^{}\int_{\text{unit cell}}^{}d\vec{r}V(\vec{r}+\vec{R})e^{i(\vec{k}-\vec{k}')\cdot\vec{r}}\\
+	&\qquad\text{where } \int_{\text{unit cell}}^{}d\vec{r}V(\vec{r}+\vec{R})e^{i\vec{G}\cdot\vec{r}} = \tilde{V}(\vec{G})\\
+	&\qquad\text{with } V(\vec{r}) = \sum_{\vec{G}}^{}\tilde{V}(\vec{G})e^{i\vec{G}\cdot\vec{r}}\\
+	\iff & e^{i\vec{G}\cdot\vec{r}} = 1
+\end{align}
+As we know from section \ref{sec:reciproc_space} if $\vec{G} (= \vec{k} - \vec{k}')$ is not a reciprocal lattice vector, $\tilde{V}(\vec{G}) = 0$. $\vec{G}$ must be a lattice vector. The condition \ref{eqn:Bragg_condition} is the von Laue condition for constructive scattering.\par
+So if we have elastic scattering:
+\begin{align}
+
+\end{align}
 \subsection{Von Laue-Bragg condition} \label{sec:bragg}
 abc
 
