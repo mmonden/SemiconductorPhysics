@@ -45,10 +45,37 @@ By symmetry, we can leave $\vec{R}$ out of equation \ref{eqn:periodicity}, we ge
 	\iff & e^{i\vec{G}\cdot\vec{r}} = 1
 \end{align}
 As we know from section \ref{sec:reciproc_space} if $\vec{G} (= \vec{k} - \vec{k}')$ is not a reciprocal lattice vector, $\tilde{V}(\vec{G}) = 0$. $\vec{G}$ must be a lattice vector. The condition \ref{eqn:Bragg_condition} is the von Laue condition for constructive scattering.\par
-So if we have elastic scattering:
+So if we have elastic scattering, than the wavevectors and wavelengths are the same:
 \begin{align}
-
+	\abs{\vec{k}} &= \abs{\vec{k}'} \\
+	\frac{2\pi}{\lamba} &= \frac{2\pi}{\lambda'}\\
+	\iff \lambda &= \lambda'
 \end{align}
+If we have the same wavelength, this scattering introduces extra distance for different incoming waves, we can see that in figure \ref{fig:extradistance}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[->, black, very thick]	(3, 3) to (1.5, 1.5) node[left=1mm]{$\vec{k}$};
+		\draw[-, black, very thick]		(1.5, 1.5) to (0, 0);
+
+		\draw[->, black, very thick]	(6, 3.5) to (4.5, 2) node[left=1mm]{$\vec{k}$};
+		\draw[-, black, very thick]		(4.5, 2) to (3, 0.5);
+
+		\filldraw[black]	(0, 0) circle (2pt)
+							(3, 0.5) circle (2pt);
+
+		\draw[->, black, very thick]	(0, 0) to (1.5, -1.5) node[right=1mm]{$\vec{k}'$};
+		\draw[-, black, very thick]		(1.5, -1.5) to (3, -3);
+
+		\draw[->, black, very thick]	(3, 0.5) to (4.5, -1) node[right=1mm]{$\vec{k}'$};
+		\draw[-, black, very thick]		(4.5, -1) to (6, -2.5);
+
+		\draw[->, red, very thick] 	(2.9, 0.5) to (0.1, 0);
+		\draw[red]		(1.5, 0.25) node[above]{$\vec{R}$};
+	\end{tikzpicture}
+	\caption{Extra distance for different wavevectors}
+	\label{fig:extradistance}
+\end{figure}
 \subsection{Von Laue-Bragg condition} \label{sec:bragg}
 abc
 
