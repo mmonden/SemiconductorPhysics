@@ -1,14 +1,34 @@
 \section{X-ray diffraction}
-Va laue
+One way where the 'Von Laue-Bragg' condition can be observed is in x-ray diffraction. The 'Von Laue-Bragg' condition states that an inciding electron is or scattered or stays unscattered when colliding with a crystal. This scattering is elastic thus the amplitude of the wave function does not change. This is illustrated in figure \ref{fig:vonlaue}.
+\begin{figure}[b]
+    \centering
+    \begin{tikzpicture}
+        \draw[->, black]	node[left] {$e^-$}(0, 0) to node[above]{incident} node[below]{$\vec{k}$} (2, 0);
 
-\section{Fermi golder rule}
+        \draw[black] plot [smooth cycle] coordinates {(2.6, 0) (3.2, 0.6) (2.9, 0.7) (3.5, 1) (4.2, 0.9) (4.5, -0.3) (3.9, -0.2) (3.5, -0.7)} node [above=5mm, size=1pt]{CRYSTAL};
+
+        \draw[->, black]	(5, 0.2) to node[above]{$\vec{k}'$}(6, 0.8) node[right=1mm]{$e^-$ (scattered)};
+		\draw[->, black]	(5, 0) to node[below]{$\vec{k}$}(6, 0) node[right=1mm]{$e^-$ (unscattered)};
+    \end{tikzpicture}
+    \caption{X-ray diffraction on a lattice}
+    \label{fig:vonlaue}
+\end{figure}
+Becuase the scattering is elastic we can state the following, define the wave as $e^{i\vec{k}\cdot\vec{r}}$:
+\begin{align}
+	E(\vec{k}) &= \frac{\hbar^2k^2}{2m}\\
+	&= E(\vec{k}')\\
+	&= \frac{\hbar^2k'^2}{2m}\\
+	&\Rightarrow \abs{\vec{k}} = \abs{\vec{k}'}
+\end{align}
+One way of figuring out if an electron is scattered is to use the Fermi golden rule.
+\section{Fermi golden rule}
 abc
 
-\subsection{Von Laue-Bragg condition}
+\subsection{Von Laue-Bragg condition} \label{sec:bragg}
 abc
 
 \section{Von Laue-Bragg condition}
 abc
 
-\section{The Brillaun Zone (BZ)}
+\section{The Brillouin Zone (BZ)} \label{sec:Brillouin}
 abc
