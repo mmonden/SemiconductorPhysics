@@ -1,4 +1,4 @@
-\chapter{Solids} \todo{Redo references to equations with label}
+\chapter{Solids} \label{ch:solids} \todo{Redo references to equations with label}
 \section{Defining solids}
 \qs{What is a solid?}{Solid = nuclei + electrons}
 For describing solids we define following concepts:
@@ -49,7 +49,7 @@ What we eventually want to solve is: $ H\Phi = E\Phi $. We will therefore define
 We can now define the probability density function as: $P (\vec{r}, \vec{R}) = \abs{\Phi(\vec{r}, \vec{R})}^2$
 Later on, we separate the degrees of freedom of valence electrons from the degrees of freedom of bound electrons, that's why we separated them here already.
 
-\section{Born-oppenheimer approximation}
+\section{Born-Oppenheimer approximation}
 This definition comes down to saying electrons move much faster as ions thus ions are immobile.
 \begin{equation}
 	H\Phi(\vec{r}, \vec{R}) = E\Phi(\vec{r}, \vec{R})
@@ -115,11 +115,30 @@ Such that:
 \section{Hartree approximation}
 \qs{What does this approximation mean?}{
 	First of all, the Hartree approximation is an electron - electron interaction approximation.
-	It means that electron number $i$ sees all other electrons as a continious charge distribution.
+	It means that electron number $i$ sees all other electrons as a continious charge distribution. Can be seen in the figure, too.
 	\begin{align}
 		& g_i(\vec{r}) = \sum_{k \neq i}^{}{-e \abs{\xi_k(\vec{r})}^2} \\
 		& \qquad \qquad \longrightarrow \nabla^2\Phi_i(\vec{r}) = \frac{g_i(\vec{r})}{\epsilon}
 	\end{align}
+
+	\begin{center}
+		\begin{tikzpicture}
+			\filldraw[black]	(0, 0) circle (2pt);
+			\filldraw[black]	(1.5, 1) circle (1pt)
+								(1, 2) circle (1pt)
+								(1.8, 3) circle (1pt)
+								(2, 1.6) circle (1pt)
+								(2, 1) circle (1pt) node[right]{$e^-$}
+								(2.3, 2.9) circle (1pt)
+								(2.5, 1.7) circle (1pt)
+								(1, 2.5) circle (1pt) node[right]{$e^-$}
+								(2, 2.4) circle (1pt)
+								(2.3, 2.1) circle (1pt);
+
+			\draw[->, blue, thick]	(0, 0) to node[below=1mm]{$\vec{r}_i$} (2, 1);
+			\draw[->, blue, thick]	(0, 0) to node[left=1mm]{$\vec{r}_j$} (1, 2.5);
+		\end{tikzpicture}
+	\end{center}
 }
 We can calculate the Potential enegery as follows:
 \begin{align}
