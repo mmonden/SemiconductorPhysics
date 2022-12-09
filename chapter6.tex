@@ -7,7 +7,7 @@ The one electron Schrödinger equation states:
 \end{equation}
 As we know, this potential is called the crystal potential energy fucntion. It has periodic properties. Now, we can deduce properties, originating from the periodicity of $V(\vec{r})$, af this Schrödinger equation.
 
-\section{Influence of translation parameter on the Schrödinger equation}
+\section{Property 1: Influence of translation operator on the Schrödinger equation} \label{sec:property1}
 \dfn{Translation operator}{What is a translation operator: \begin{equation} \hat{T}_{\vec{R}}f(\vec{r}) = f(\vec{r} + \vec{R}) \end{equation}}
 \nt{We put a hat ( $\hat{}$ ) on the letter to show that it is a operator.}
 Applying this on the Schrödinger equation result in:
@@ -134,3 +134,63 @@ From differential equation analysis and eigenvalue problems we know we get a dis
 	Now we can also show that $E_n(\vec{k} + \vec{G}) = E_n(\vec{k})$.
 \end{myproof}
 What you might notice now is that $\vec{G}$ can be any vector, instead of being a reciprocal lattice vector. How do we enforce this requirement? Well, because equation \ref{eqn:schrodinger_complete} and equation \ref{eqn:updatedschrod} are the same, the wavefunctions must obey the same periodic boundary conditions. That is only true if $\vec{G}$ is a reciprocal lattice vector.
+We can show this has to be the case by:
+\begin{align}
+	\hat{T}_{\vec{R}}\left(u_{n, \vec{k} + \vec{G}}(\vec{r})e^{i\vec{G}\cdot\vec{r}}\right) &= u_{n, \vec{k} + \vec{G}}(\vec{r} + \vec{R})e^{i\vec{G}\cdot(\vec{r} + \vec{R})} \\
+	&= u_{n, \vec{k} + \vec{G}}(\vec{r})e^{i\vec{G}\cdot\vec{r}}e^{i\vec{G}\cdot\vec{R}} \\
+	&\Rightarrow e^{i\vec{G}\cdot\vec{R}} = 1
+\end{align}
+
+\section{Property 2: Inversion symmetry} \label{sec:property2}
+\dfn{Inversion symmetry}{Inversion symmetry states that \begin{equation} E_n(-\vec{k}) = E_n(\vec{k}) \label{eqn:property2} \end{equation}}
+This has an effect on a property of the wave equation:
+\begin{align}
+	\psi_{n, \vec{k}}^{*}(\vec{r} + \vec{R}) &= \left(\psi_{n, \vec{k}}(\vec{r} + \vec{R})\right)^{*} \\
+	\text{(By equation \ref{eqn:eigenstates_transoperator})}\qquad &= \left(e^{i\vec{k}\cdot\vec{R}}\psi_{n, \vec{k}}(\vec{r})\right)^{*} \\
+	&= e^{-i\vec{k}\cdot\vec{R}}\psi_{n, \vec{k}}^{*}(\vec{r})
+\end{align}
+The complex conjugate wavefunction still complies with Bloch's theorem, therefore we can say that:
+\begin{equation}
+	\psi_{n, \vec{k}}^{*}(\vec{r}) = \psi_{n, -\vec{k}}(\vec{r})
+\end{equation}
+Now, we proof the property for energy eigenvalues (equation \ref{eqn:property2}) by starting form the complex conjugate Schrödinger equation:
+\begin{align}
+	H^{*}\psi_{n, \vec{k}}^{*}(\vec{r}) = H\psi_{n, \vec{k}}^{*}(\vec{r}) &= \left(H\psi_{n, \vec{k}}(\vec{r})\right)^{*} \\
+	&= \left(E_n(\vec{k})\psi_{n, \vec{k}}(\vec{r})\right)^{*} \\
+	&= E_n\psi_{n, \vec{k}}^{*}(\vec{r}) \\
+	\Rightarrow H\psi_{n, -\vec{k}}(\vec{r}) &= E_n(-\vec{k})\psi_{n, -\vec{k}}(\vec{r}) \\
+	&= E_n(-\vec{k})\psi_{n, \vec{k}}^{*}(\vec{r}) \\
+	\Rightarrow E_n(-\vec{k}) = E_n(\vec{k}) \nonumber
+\end{align}
+
+\section{Consequences of the properties}
+As we saw for the Schrödinger equation:
+\begin{align}
+    &-\frac{\hbar^2}{2m}\nabla^2\psi_{n, \vec{k}}(\vec{r}) + V(\vec{r})\psi_{n, \vec{k}}(\vec{r}) = E_n(\vec{k})\psi_{n, \vec{k}}(\vec{r}) \\
+    & \qquad \rightarrow V(\vec{r}) = V(\vec{r} + \vec{R})
+\end{align}
+
+This says something about the energy spectrum, in function of $\vec{k}$. As we see in figure \ref{fig:energybandiagram}, we have energy bands $E_i$, these all have all eigenvalues and between the bands we have bandgaps, there there aro no eigenvalues. Now there is also a possibility of overlap of the energy bands.\par
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \draw[->, black] (0, 0) to (0, 5) node[right]{$E$};
+        \draw[->, black] (-4, 0) to (4, 0) node[below]{$k$};
+
+        \draw[domain=-4:4, smooth, variable=\x, blue] plot ({\x}, {-0.7*cos(\x*100)+0.7}) node[right]{$E_1(k)$};
+        \draw[domain=-4:4, smooth, variable=\x, blue] plot ({\x}, {-cos(\x*100)+3}) node[right]{$E_2(k)$};
+
+        \filldraw[-, draw=red, fill=red, opacity=0.2, thick] (-4, 1.4) to (-4, 2) to (4, 2) to (4, 1.4) to (-4, 1.4);
+
+        \filldraw[green]	(-1, {-cos(-100)+3}) circle (2pt)
+							(2.6, {-cos(-100)+3}) circle (2pt);
+		\draw[->, green, very thick]	(-0.8, {-cos(-100)+3}) to node[above]{$\vec{G}$} (2.4, {-cos(-100)+3});
+
+		\filldraw[magenta]	(-1, {-0.7*cos(-100)+0.7}) circle (2pt)
+							(1, {-0.7*cos(-100)+0.7}) circle (2pt);
+		\draw[<->, magenta, very thick]	(-0.8, {-0.7*cos(-100)+0.7}) to (0.8, {-0.7*cos(-100)+0.7});
+    \end{tikzpicture}
+    \caption{Energy band diagram}
+    \label{fig:energybandiagram}
+\end{figure}
+The wave functions are also periodic in k-space. Thus if we take the green point and translate that on the wave, that point has the same wave, this is translational symmetry (section \ref{sec:property1}). We also notice inversion symmetry, depicted in magenta (section \ref{sec:property2}).
