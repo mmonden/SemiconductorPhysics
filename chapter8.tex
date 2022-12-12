@@ -1,0 +1,106 @@
+\chapter{}
+\section{Crystal momentum}
+Remember band diagrams derived in previous section \todo{add section}. To introduce the crystal momentum, let's first look at
+\begin{align}
+	&\hat{H} = \frac{\hat{p}}{2m} = -\frac{\hbar^2}{2m}\nabla^2 with \hat{\vec{p}} = -n\hbar\vec{\nabla}\\
+	&\hat{H}\psi_{\vec{k}}(\vec{r}) = E \psi_{\vec{k}}(\vec{r})\\
+	&[\hat{H}, \hat{\vec{p}}] = 0\\
+	&using de brogle \vec{p} = \hbar\vec{k}
+	&\psi = 1/V....
+	&\hat{\vec{p}}\psi_{\vec{k}}(\vec{r}) = \hbar\vec{k}\psi_{\vec{k}}(\vec{r})
+\end{align}
+Bloch electrons: $\hat{H} = p^2/2m + V(vecr)$, with $\hat{\vec{p}} = -i\hbar\vec{\nabla}$. 
+Then now it is clear that these operators $[\hat{H}, \hat{\vec{p}}] \neq 0$
+Then we can derive the following:
+\begin{align}
+	Hhat\psi_{n, veck}(vecr) &= E_n(veck)psi..\\
+	\psi_{n, \vec{k}}(\vec{r}) &= u_{n, \vec{k}}(\vec{r})e^{i\vec{k}\cdot\vec{r}}\\
+	\hat{\vec{p}}\psi_{n, \vec{k}}(\vec{r}) &= -i\hbar\vec{\nabla}\left[u_{n, \vec{k}}(\vec{r})e^{i\vec{k}\cdot\vec{r}}\right] \text{using above relation}\\
+	Work it somewhat further out.
+\end{align}
+How do we interpret the $\vec{k}$? Let's define crystal momentum as follows:
+\begin{equation}
+	\vec{P} = \hbar\vec{k}
+\end{equation}
+\nt{Don't confuse $\vec{P}$ with $\vec{p}$. For a bloch electron we cannot say that $\vec{p} = \hbar\vec{k}$.}
+
+Because real space is infinite, we need some boundary condiditions to confine our space.
+\section{Boundary condition}
+There are two possiblities to impose boundary conditions:
+\begin{itemize}
+	\item Dirichlet boundary conditions
+	\item Born-von Kerman (periodic) boundary conditions
+\end{itemize}
+We will use periodic boundary conditions to show that ... . \todo{fill}
+\ex{1D boundary condition}{
+	For the function $\psi(x) = \psi(x + L)$, with $L$ the crystal length. 
+	(1)
+	We can use some properties of the bloch functions, now we can deduce the following:
+	\begin{align}
+		\psi(x + L) &= e^{ikL}psi(x) = \psi(x)\\
+		&\Rightarrow kNa = 2\pi n \\
+		&\Rightarrow k = \frac{2\pi}{L}n
+	\end{align}
+	We see that the continious $k$ value has become discrete, therefore we get the following figure. As we might expect, for a bigger lattice, we get a more continious spectrum (because $\Delta k$ becomes smaller).
+	(2)
+	How many lattice points do we have in our first BZ?
+	\begin{equation}
+		\frac{\frac{2\pi}{a}}{\Delta k} = \frac{\frac{2\pi}{a}}{\frac{2\pi}{Na}} = N = \text{number of unit cells that build the crystal}
+	\end{equation}
+}
+Can we come to the same conclusion in 3D?
+\ex{3D boundary condition}{
+	The full crystal is defined by $L_1$, $L_2$, $L_3$. Thus we can say that:
+	\begin{align}
+		\vec{L_1} &= N_1\vec{a}_1\\
+		\vec{L_2} &= N_2\vec{a}_2\\
+		\vec{L_3} &= N_3\vec{a}_3
+	\end{align}
+	We can do the same as we did in the 1D example:
+	\begin{align}
+		\psi(\vec{r} + \vec{L}_j) &= \psi(\vec{r})\\
+		&= \psi(\vec{r} + N_j\vec{a}_j)\\
+		\text{Using Bloch}\qquad &\Rightarrow \psi(\vec{r}) = e^{i\vec{k}\cdotN_j\vec{a}_j}\psi{\vec{r}}
+		&\Rightarrow \vec{k} = 2\pi n \cdot (N_j \vec{a}_j)^{-1} \text{with} n \in \bbZ\\
+		&\Rightarrow \vec{k} = \frac{n_1}{N_1}\vec{b}_1 + ...
+	\end{align}
+
+	$\vec{b}_i$ are primitive reciprocal lattice vectors.
+
+	Now we look at the elemental volume of the unit cell:
+	\begin{align}
+		\Delta \vec{k} = \Delta k^3 &= \frac{\vec{b}_1}{N_1}\cdot\left(\frac{\vec{b}_2}{N_2} \cross \frac{\vec{b}_3}{N_3}\right)\\
+		&= \frac{1}{N}\vec{b}_1\cdot\left(\vec{b}_2 \cross \vec{b}_3\right)
+	\end{align}
+	Where N is the number of unit cells that build the crystal.
+}
+We do get the same result. This has some consequences.
+\begin{enumerate}
+	\item Even number of electrons in a full shell per unit cell. We get $2N =$ amount of electrons. This gives a semiconductor.
+	\item Odd number of electrons in apartially filled shell per unit cell. Because there are still states free in the valence band, gives this a metal.
+\end{enumerate}
+\nt{This does not mean that a $2N$ amount of electrons gives a semiconductor. Band overlap can still give a metal!}
+We now link this concept to real atoms.
+\subsection{Atmic picture}
+Say, we have $N$ atoms.
+For each atom we have the following states: (3)
+Now suppose we have them far apart and bring them closer. (4)
+This just shows how the bands are for the atoms, nothig can be said about momentum, \dots. What we notice from the picture, too is:
+\begin{itemize}
+	\item 2s orbital starts to split sooner, because 2s oribitals overlap more as they are furhter away from the nucleus.
+	\item We see a smaller splitting at 1s.
+\end{itemize}
+
+We will now look at some other atoms.
+\ex{Lithium (Li)}{
+	For 1 atom we have: (5)
+	For $Li_2$ we get: (6)
+	For a crystal $Li_N$ we get: (7)
+}
+\ex{Silicium (Si)}{
+	Si has following configuration: $1s^2\,2s^2\,2p^6\,3s^2\,3p^2$
+	(8)
+	For a Si crystal we have $N$ unit cells. Si cyrstals have a diamond structure with 2 atoms per unit cell. The according band diagram: (9)
+	For each unit cell we get: (10)
+}
+We can represent these band configurations in k-space, too, but these can get complicated.
