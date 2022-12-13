@@ -158,12 +158,12 @@ Say, we have $N$ atoms. Then, for each atom we have the states in figure \ref{fi
 							(5.5, 3.5) to (10, 3.5);
 
 		\foreach \y in {28, ..., 52} {
-			\draw[-, blue, thick]	(5.5, {\y/8}) to (10, {\y/8})
+			\draw[-, gray, thick]	(5.5, {\y/8}) to (10, {\y/8})
 									(4, 5) to (5.5, {\y/8});
 		}
 
 		\foreach \y in {5, ..., 15} {
-			\draw[-, blue, thick]	(7.5, {\y/5}) to (10, {\y/5})
+			\draw[-, gray, thick]	(7.5, {\y/5}) to (10, {\y/5})
 									(6, 2) to (7.5, {\y/5});
 		}
 
@@ -424,8 +424,21 @@ We will now look at some other atoms.
 			\draw[dashed, red, very thick]	(10, 0) to (10, 6);
 
 			\draw[<->, red, very thick]	(9, 4) to node[left]{$E_g$} (9, 5);
+
+			\draw[black]	(2, 3.5) node[above]{$4N$ electrons} node[below]{$4N$ states possible};
+			\draw[black]	(1.5, 5) node[above]{$4N$ electrons} node[below]{$12N$ states possible};
+
+			\draw[-, magenta, thick]	(3.2, 6.1) node[above]{Partially filled band ($6N$)} to (4.9, 6.1) to (4.9, 4.5) to (3.2, 4.5) to (3.2, 6.1);
+			\draw[-, orange, thick]	(5.1, 6.1) to (6.9, 6.1) to (6.9, 2.6) to (5.1, 2.6) node[left]{Partially filled band ($8N$)} to (5.1, 6.1);
+			\draw[black]	(10, 5.5) node[right]{$8N$ states; empty}
 		\end{tikzpicture}
 	\end{center}
+	All possible states for the valence bands can be found on the picture.
 }
-We can represent these band configurations in k-space, too, but these plots can get complicated. Luckily, there is a solution for that. (11)
-We will travel along the red line. This gives a plot that has enough information about the crystal. Thus using the high symmetry points is adequate.
+We can represent these band configurations in k-space, too, but these plots can get complicated. Luckily, there is a solution for that. I will illustrate the concept with picture \ref{fig:banddiagram_silicon}. We will travel along the following path: $\Lambda - K - M - \Lambda$. This gives a plot that has enough information about the crystal. Thus using the high symmetry points is adequate for determining the behaviour of the cyrstal.
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{./banddiagram_silicon.png}
+	\caption{2D banddiagram for silicon}
+	\label{fig:banddiagram_silicon}
+\end{figure}
