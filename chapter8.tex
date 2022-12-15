@@ -1,4 +1,4 @@
-\chapter{}
+\chapter{Crystals}
 \section{Crystal momentum}
 Remember band diagrams derived in previous section \ref{sec:nearly_free_e_approx}. To introduce the crystal momentum, let's first look at
 \begin{align}
@@ -126,7 +126,7 @@ We do get the same results, and this has some consequences when we look at the a
 \nt{This does not mean that a $2N$ amount of electrons gives a semiconductor. Band overlap can still give a metal!}
 We now link this concept to real atoms.
 
-\subsection{Energy bands for the atomic picture}
+\section{Energy bands for the atomic picture} \label{sec:atomic_picture}
 Say, we have $N$ atoms. Then, for each atom we have the states in figure \ref{fig:state_one_atom}. Now suppose we have them far apart and bring them closer, then we get figure \ref{fig:bands_crystal_fictiveatoms}. For a semiconductor, we see a bandgap $E_g$ at $d = a$, this is highlighted in red.
 \begin{figure}[h]
 	\centering
@@ -435,7 +435,9 @@ We will now look at some other atoms.
 	\end{center}
 	All possible states for the valence bands can be found on the picture.
 }
-We can represent these band configurations in k-space, too, but these plots can get complicated. Luckily, there is a solution for that. I will illustrate the concept with picture \ref{fig:banddiagram_silicon}. We will travel along the following path: $\Lambda - K - M - \Lambda$. This gives a plot that has enough information about the crystal. Thus using the high symmetry points is adequate for determining the behaviour of the cyrstal.
+
+\subsection{Higer dimension energy band diagrams}
+We can represent these band configurations in k-space, too, but these plots can get complicated. Luckily, there is a solution for that. This concept is illustrated with picture \ref{fig:banddiagram_silicon}. We will travel along the following path: $\Gamma - K - M - \Gamma$. This gives a plot that has enough information about the crystal. Thus plotting $E(\vec{k})$ along the high symmetry points, in the first BZ, is adequate for determining the behaviour of the cyrstals in higher dimensions. The lines we follow are called \textbf{Bragg-lines}. The only thing we want to get to know is what the maximum/minimum of the valence/conduction band are. This is acheived with the Bragg-lines.
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.5]{./banddiagram_silicon.png}
