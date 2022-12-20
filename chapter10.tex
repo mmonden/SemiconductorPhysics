@@ -1,5 +1,5 @@
 \chapter{Band structures of crystals}
-\section{Energy band structures at $0K$}
+\section{Energy band structures at $T = 0K$}
 As it turns out, as mentioned in the previous chapter (chapter \ref{ch:crystals}), the behaviour of the crystal can be represened by just a few important energy bands. In this section, we start with a simple case: the band structure of a semiconductor/insulator in 1D, see figure \ref{fig:simple_bandstruct}. As it turns out, only the valence band (VB) and conduction band (CB) (in the neighbourhood of the $\Gamma$-point) are needed to obtain all information about the behaviour of the electrons. \\ \par
 As we see, the further we go away from the $\Gamma$-point (thus increasing/decreasing $k$), the more the $E_g$ becomes. Meaning thermally exiting electrons is becomes more difficult. That's why the $\Gamma$-point is so important. These electrons can be described as quasi-particles, that means free-electrons. As we will see, something will happen to the mass of the electrons. \\ \par
 First, we look at the conduction band. Because we are only interested in the electrons near the $\Gamma$-point, we can use a taylor expansion for the description of the energy:
@@ -143,7 +143,7 @@ What we can conclude from this is that if we find the right coordinate transform
 		\end{array}
 		\right]
 	\end{equation}
-	As it turns out, there is some symmetry in the effective masses along different axises:\\
+	As it turns out, there is some symmetry in the effective masses along different axes:\\
 	\quad the effective masses along the $k_x$-axis give: $m^*_{\alpha, x} = m^*_l$ and $m^*_{\alpha, y} = m^*_{\alpha, z} = m^*_t$, \\
 	\quad the effective masses along the $k_y$-axis give: $m^*_{\alpha, y} = m^*_l$ and $m^*_{\alpha, x} = m^*_{\alpha, z} = m^*_t$, \\
 	\quad the effective masses along the $k_z$-axis give: $m^*_{\alpha, z} = m^*_l$ and $m^*_{\alpha, x} = m^*_{\alpha, y} = m^*_t$. \\ \newline
@@ -152,5 +152,40 @@ What we can conclude from this is that if we find the right coordinate transform
 	\begin{equation}
 		E_{1}(\vec{k}) = E_{1} + \frac{\hbar^2}{2}\left[\frac{(k_x - k_{0, 1, x})^2}{m^*_l} + \frac{(k_y - k_{0, 1, y})^2}{m^*_t} + \frac{(k_z - k_{0, 1, z})^2}{m^*_t}\right]
 	\end{equation}
-	This gives us an ellipsoidal surface.
+	This gives us an ellipsoidal surface. In the 3D space, we will see small elongated ellipsoids along the axes.
 }
+\ex{Intermezzo: Ge} {
+	If we now look at Ge, we get the CB minimum at the $L$-points which are in the [1 1 1] direction. If we choose a normal axes orientation ($k_x = $ [1 0 0], etc.). We get ellipsoids along the [1 1 1] (and the two axes perpendicular to it) axis. This means the effective mass tensor will have a contribution of all elements of the tensor, it will not be a diagonal matrix. Rotate the coordinate system accordingly!
+}
+
+\section{Energy band structures at $T > 0K$}
+At a finite temperature there is a chance electrons are excited from the VB to the CB. We can say that there is a probability a certain E-state is occupied. Because particles can be defined in two ways in Quantum mechanics, we will separate them here, too.
+
+\subsection{Bosons - integer spin}
+For bosons, any energy state $E_i$ can be occupied by an unlimited amount of particles. The probability distribution is given by the Bose-Einstein distribution:
+\begin{equation}
+	f(E) = \frac{1}{e^{\beta E} - 1} \quad \text{with } \beta = \frac{1}{k_BT}
+\end{equation}
+We will not further discuss this case.
+
+\subsection{Fermions - half integer spin}
+Every energy state can be occupied by at most one particle. this is called the \textbf{Pauli exlusion principle}. Still, one has to pay attention to degeneracies. For electrons, one energy state has two degeneracies. The probability distribution is give by the Fermi-Dirac distribution, also given in figure \ref{fig:fermidiracdistr}:
+\begin{equation}
+	f(E) = \frac{1}{1 - e^{\beta (E - \mu)}} \quad \text{with } \beta = \frac{1}{k_BT} \text{ and } \mu = \text{ the chemical potential}
+\end{equation}
+What is the physical significane of this distribution function? Well, $f(E) = $ probability to occupy a state at energy E. Meaning that $1 - f(E) = $ probability that a state E is not occupied.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{./fermi.png}
+	\caption{The Fermi-Dirac distribution for different temperatures}
+	\label{fig:fermidiracdistr}
+\end{figure}
+As we know, for $\beta\mu >> 1$ we can use the Maxwell- distribution. \\ \par
+When graphing the Fermi-Dirac distribution in a band diagram, we get the following graph for different temperatures, see figure \ref{fig:fermidiracinenergyband}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.2]{./fermidirac_in_banddiagram.jpg}
+	\caption{The Fermi-Dirac distribution for different temperatures}
+	\label{fig:fermidiracinenergyband}
+\end{figure}
+\nt{The reason for having the Fermi-Dirac function going to 1 is that it is an electron is a fermion and only one can occupy a state.}
