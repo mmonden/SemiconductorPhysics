@@ -171,7 +171,7 @@ We will not further discuss this case.
 \subsection{Fermions - half integer spin}
 Every energy state can be occupied by at most one particle. this is called the \textbf{Pauli exlusion principle}. Still, one has to pay attention to degeneracies. For electrons, one energy state has two degeneracies. The probability distribution is give by the Fermi-Dirac distribution, also given in figure \ref{fig:fermidiracdistr}:
 \begin{equation}
-	f(E) = \frac{1}{1 - e^{\beta (E - \mu)}} \quad \text{with } \beta = \frac{1}{k_BT} \text{ and } \mu = \text{ the chemical potential}
+	f(E) = \frac{1}{1 - e^{\beta (E - \mu)}} \quad \text{with } \beta = \frac{1}{k_BT} \text{ and } \mu = \text{ the chemical potential ($E_g$ for intrinsic semiconductor)} \label{eqn:elec_fermi-dirac}
 \end{equation}
 What is the physical significane of this distribution function? Well, $f(E) = $ probability to occupy a state at energy E. Meaning that $1 - f(E) = $ probability that a state E is not occupied.
 \begin{figure}[h]
@@ -180,8 +180,8 @@ What is the physical significane of this distribution function? Well, $f(E) = $ 
 	\caption{The Fermi-Dirac distribution for different temperatures}
 	\label{fig:fermidiracdistr}
 \end{figure}
-As we know, for $\beta\mu >> 1$ we can use the Maxwell- distribution. \\ \par
-When graphing the Fermi-Dirac distribution in a band diagram, we get the following graph for different temperatures, see figure \ref{fig:fermidiracinenergyband}
+As we know, for $\beta\mu >> 1$ we can use the Maxwell-Botzmann distribution. \\ \par
+When graphing the Fermi-Dirac distribution in a band diagram, we get the following graph for different temperatures, see figure \ref{fig:fermidiracinenergyband}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.2]{./fermidirac_in_banddiagram.jpg}
