@@ -258,7 +258,7 @@ If we want to inlcude these external fields, we need to solve the time dependant
 	\end{align}
 	If we look at the total hamiltonian acting on the eigenfunction of the Bloch hamiltonian meaning the wavevector is an eigenfunction of the total hamiltonian. Thereby we can replace the hamiltonian by the eigenenergy.
 	\begin{equation}
-		\rightarrow \quad \sum_{\vec{k}}^{} c_{\vec{k}}(t)\left[E(\vec{k}) + V_{ext}\right]\psi_{\vec{k}}(\vec{r}) = i\hbar\frac{\delta \psi}{\delta t}
+		\rightarrow \quad \sum_{\vec{k}}^{} c_{\vec{k}}(t)\left[E(\vec{k}) + V_{ext}\right]\psi_{\vec{k}}(\vec{r}) = i\hbar\frac{\delta \psi}{\delta t} \label{eqn:toconcludeproof}
 	\end{equation}
 	Because $E(\vec{k})$ is periodic, we can make a fourier expansion in k-sapce:
 	\begin{align}
@@ -277,5 +277,12 @@ If we want to inlcude these external fields, we need to solve the time dependant
 		\text{Using the Bloch wavefunction property }	\qquad &= \sum_m^{}E_me^{i\vec{R}_m\cdot\vec{k}}\psi_{\vec{k}}(\vec{r}) \\
 		&= E(\vec{k})\psi_{\vec{k}}(\vec{r})
 	\end{align}
-	What we now have showed is that the operator $\hat{E}(-i\vec{\nabla})$ acting on the eigenstates of the Hamiltonian gives as eigenvalues, the eigenenrgies of the Hamiltonian. Now we can safely write that $E(\vec{k}) = \hat{E}(-i\vec{\nabla})$.
+	What we now have showed is that the operator $\hat{E}(-i\vec{\nabla})$ acting on the eigenstates of the Hamiltonian gives as eigenvalues, the eigenenrgies of the Hamiltonian. Now we can safely write that $E(\vec{k}) = \hat{E}(-i\vec{\nabla})$. \\
+	We can now rewrite equation \ref{eqn:toconcludeproof} as
+	\begin{align}
+		\sum_{\vec{k}}^{} c_{\vec{k}}(t)\left[E(-i\vec{\nabla}) + V_{ext}\right]\psi_{\vec{k}}(\vec{r}) &= i\hbar\frac{\delta \psi}{\delta t} \\
+		\left[E(-i\vec{\nabla}) + V_{ext}\right]\sum_{\vec{k}}^{} c_{\vec{k}}(t)\psi_{\vec{k}}(\vec{r}) &= i\hbar\frac{\delta \psi}{\delta t} \\
+		\left[E(-i\vec{\nabla}) + V_{ext}\right]\psi(\vec{r}, t) &= i\hbar\frac{\delta \psi(\vec{r}, t)}{\delta t}
+	\end{align}
 \end{myproof}
+\nt{This is only valid if we stick in the conduction or valence band.}
