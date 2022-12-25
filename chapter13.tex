@@ -43,7 +43,7 @@
 	\end{equation} \\ \newline
 	As a result, using the effective mass theorem we can become a more general description (i.e. the effective mass equation) by making use of equation \ref{eqn:new_psi} and equation \ref{eqn:make_use}:
 	\begin{equation}
-		i\hbar\frac{\delta F}{\delta t} = \left[\hat{E}(\vec{k}_0 - i\vec{\nabla}) + V_{ext}\right]F(\vec{r}, t)
+		i\hbar\frac{\delta F}{\delta t} = \left[\hat{E}(\vec{k}_0 - i\vec{\nabla}) + V_{ext}\right]F(\vec{r}, t) \label{eqn:eff_mass_eq}
 	\end{equation}
 }
 How can we use the effective mass equation? Suppose we look at a CB minimum located at $\vec{k}_0$, not located at the $\Gamma$-point. We can than say that because we are at a minium, we can write
@@ -79,7 +79,7 @@ Remember that earlier was said that when working with acceptors and donors, the 
 		&= -\frac{(Z_{Ga} + 1)e^2}{4\pi\epsilon\abs{\vec{r}}} + \frac{Z_{Ga}e^2}{4\pi\epsilon\abs{\vec{r}}} \\
 		&= -\frac{e^2}{4\pi\epsilon\abs{\vec{r}}}
 	\end{align*}
-	We know that the energy is given by:
+	We know that the energy of the conduction band is given by:
 	\begin{equation*}
 		E(\vec{k}) = E_c + \frac{\hbar^2k^2}{2m^*}
 	\end{equation*}
@@ -111,6 +111,69 @@ Remember that earlier was said that when working with acceptors and donors, the 
 	\end{center}
 }
 \ex{E-spectrum of acceptor impurities in Si}{
-	Now, we will replace Si by an acceptor.
-	1h01
+	Now, we will replace Si by an acceptor. We can now define $V_{ext}$ as
+	\begin{equation*}
+		V_{ext} = \frac{e^2}{4\pi\epsilon\abs{\vec{r}}}
+	\end{equation*}
+	Then the energy solution of the valence band becomes (after introduction of $m_h = -m^* > 0$):
+	\begin{equation*}
+		E(\vec{k}) = -\frac{\hbar^2k^2}{2m_h}
+	\end{equation*}
+	Then we can write the effective mass equation as
+	\begin{align*}
+		i\hbar\frac{\delta F}{\delta t} = \left[\frac{\hbar^2}{2m_h}\nabla^2 + \frac{e^2}{4\pi\epsilon\abs{\vec{r}}}\right]F \\
+		\Rightarrow \quad \left[\frac{\hbar^2}{2m_h}\nabla^2 + \frac{e^2}{4\pi\epsilon\abs{\vec{r}}}\right]\psi(\vec{r}) = E\psi(\vec{r})
+	\end{align*}
+	Now, this is just the hydrogen spectrum, at least if we introduce some minus signs. We get the following:
+	\begin{equation*}
+		\left[-\frac{\hbar^2}{2m_h}\nabla^2 - \frac{e^2}{4\pi\epsilon\abs{\vec{r}}}\right]\psi(\vec{r}) = -E\psi(\vec{r})
+	\end{equation*}
+	If we then take $\tilde{E} = -E$ the 'hydrogen' atom is complete. We get the following figure:
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[->, black]	(0, -0.12) to (0, 2) node[above]{$E$};
+
+			\foreach \y in {1,...,10} {
+				\draw[blue, thick]	plot[samples=200, domain=-1:1] (\x, {\y*\y*\y/500 - 0.12});
+			}
+			\draw[blue, thick]	plot[sample=200, domain=-1:1]	(\x, -\x*\x - 0.12) node[right]{$E_v$};
+
+			\draw[<->, red, thick]		(1.1, -0.12) to node[right]{Ionization energy} (1.1, 1.88);
+
+			\draw[blue]		(-1, 2) node[left]{$E_D$ $(n = 1)$};
+		\end{tikzpicture}
+	\end{center}
+	Yet again, if we want to get an electron to the acceptor level we need an energy equal to the "Ionization energy"
 }
+
+\section{Semi-classical electron (or hole) dynamics}
+When the external field is time varying, solving the effective mass theorem (equation \ref{eqn:eff_mass_theorem}) for electrons (or holes) in the VB or CB becomes rather difficult to solve. Now luckily, it turns out one can find a solution (by approximation) for the effective mass theorem. Meaning one can derive semi-classical equation of motion.
+The effective mass theorem given by equation \ref{eqn:eff_mass_theorem} has a wave function
+\begin{align}
+	\psi(\vec{r}, t) &= \sum_{\vec{k}}^{}c_{\vec{k}}(t)\psi_{n, \vec{k}}(\vec{r}) \\
+	&= \psi_{n, \vec{k}_0}F(\vec{r}, t) \label{eqn:simplification_peak}
+\end{align}
+Because $c_{\vec{k}}(t)$ is sharply peaked around $k_0$ in the conduction band and valence band, we can write it as equation \label{eqn:simplification_peak}.\\ \par
+For classical/semi-classical particles/electrons, we know that $\vec{p}$ and $\vec{r}$ is well defined. So how can we define them?\\
+In figure \ref{fig:particles_lattice_semi} we see an underlying lattice and the envelope wave function (because $c$ is sharply peaked we have this). We can decrease $\Delta x$, however this way we increase $\Delta p$. From fourier analysis, we know that
+\begin{equation}
+	\Delta x \Delta k > 1 \quad \Rightarrow \quad \Delta x \Delta p > \hbar
+\end{equation}
+So we will need our Bloch electrons to behave with a $\Delta x <<$ variation of $V_{ext}$ and that $\Delta x >> a$. Why this last statement? We want the uncertainty on $k$ ($\Delta k$) to be within the firt BZ.
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[->, black]	(0, 0) to (4.2, 0) node[right]{$x$};
+		\draw[<->, red]		(0.8, -0.2)	to node[below]{$a$} (1, -0.2);
+		\draw[<->, red]		(1.4, 0.5) to node[below]{$\Delta x$} (2.6, 0.5);
+
+		\draw[blue, thick]		plot[samples=200, domain=-2:2]	(\x + 2, {1/(1 + 2*\x*\x)});
+
+		\foreach \x in {1, ..., 20} {
+			\draw[-]	(\x/5, -0.1) to (\x/5, 0.1);
+		}
+	\end{tikzpicture}
+	\caption{Underlying lattice with envelope wave function}
+	\label{fig:particles_lattice_semi}
+\end{figure}
+1u20
