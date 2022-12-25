@@ -176,4 +176,71 @@ So we will need our Bloch electrons to behave with a $\Delta x <<$ variation of 
 	\caption{Underlying lattice with envelope wave function}
 	\label{fig:particles_lattice_semi}
 \end{figure}
-1u20
+
+\subsection{The semi-classical approach}
+Instead of using $\hat{H} = \hat{E}(-i\vec{\nabla}) + V_{ext}(\vec{r}, t)$ we use $H =  E(\vec{k}) + V_{ext}(\vec{r}, t)$ which is equivalent to $H =  E(\frac{\vec{P}_C}{\hbar}) + V_{ext}(\vec{r}, t)$. With $\vec{P}_C$ the crystal momentum. \\
+Now, the hamiltonian equations represent the well known Newton equations of motion:
+\begin{align}
+	\frac{\delta H}{\delta \vec{r}} &= \vec{\nabla}_{\vec{x}}H = -\frac{\delta\vec{P}_C}{\delta t} \label{eqn:ref1}\\
+	\frac{\delta H}{\delta \vec{r}} &= \vec{\nabla}_{\vec{P}_C}H = \frac{\delta\vec{x}}{\delta t} \label{eqn:ref2}
+\end{align}
+Then we can derive the semi-classical equation as
+\begin{align}
+	\text{from equation \ref{eqn:ref1}} &\qquad \frac{\delta \vec{P}_C}{\delta t} = \frac{\delta}{\delta t}(\hbar\vec{k}) = -\vec{\nabla}_{\vec{x}}H = \vec{F}_{ext}(\vec{r}, t) \\*
+	\text{from equation \ref{eqn:ref2}} &\qquad \frac{\delta \vec{x}}{\delta t} = \vec{v} = \vec{\nabla}_{\vec{P}_C}H = \vec{\nabla}_{\vec{P}_C}E_n(\frac{\vec{P}_C}{\hbar}) = \frac{1}{\hbar}\vec{\nabla}_{\vec{k}}E_n(\vec{k}) = \vec{v}_g(\vec{k})
+\end{align}
+
+\ex{Constant $F_{ext}$ - 1D example}{
+	\begin{align}
+		\hbar\frac{\delta k}{\delta t} &= F_{ext} \quad \Rightarrow \quad k(t) = k(0) + \frac{F_{ext}t}{\hbar} \\
+		v &= \frac{1}{\hbar}\frac{\delta E}{\delta k} = \frac{1}{\hbar}\frac{\delta E(k(t))}{\delta k} = v_g(k(t)) \\
+		a &= \frac{F_{ext}}{m^*(k)} \\
+		\frac{1}{m^*(k)} &= \frac{1}{\hbar^2}\frac{\delta^2E}{\delta k^2}
+	\end{align}
+	The conduction band is represented in the following figure, along with the group velocity and the effective mass.
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[dashed, gray]	(-2, 2) node[above]{$-\pi/a$} to (-2, -6);
+			\draw[dashed, gray]	(2, 2) node[above]{$\pi/a$} to (2, -6);
+
+			\draw[->, black]	(-2.2, 0) to (2.2, 0) node[right]{$k$};
+			\draw[->, black]	(0, 0) to (0, 2.2) node[right]{$E$};
+			\draw[blue, very thick]	plot[samples=200, domain=-2:2]	(\x, {sin(90*(\x + 1)) + 1});
+
+			\draw[->, black]	(-2.2, -3) to (2.2, -3) node[right]{$t$};
+			\draw[->, black]	(0, -3) to (0, -1) node[right]{$v_g$};
+			\draw[blue, very thick]	plot[samples=200, domain=-2:2]	(\x, {sin(90*\x) -3});
+
+			\draw[->, black]	(-2.2, -6) to (2.2, -6) node[right]{$t$};
+			\draw[->, black]	(0, -6) to (0, -4) node[right]{$m^*$};
+			\draw[blue, very thick]	plot[samples=200, domain=-1:1]	(\x, \x*\x*\x*\x - 5.5);
+			\draw[blue, very thick]	plot[samples=200, domain=0:1]	(\x - 2, -\x*\x*\x*\x - 6.1);
+			\draw[blue, very thick]	plot[samples=200, domain=-1:0]	(\x + 2, -\x*\x*\x*\x - 6.1);
+		\end{tikzpicture}
+	\end{center}
+	If we would let the CB go beyond $\pi/a$, we would get an oscilation. This leads to an oscilation of the group velocity, too. This are called \textbf{Bloch oscilations}.\\
+	How should one interpret these graphs? Well, suppose we start at no external force, then we are at $k=0$. Once a force is introduced, we see $k$ change. One important thing to extract from the figures, is that when going away from the CB minimum, the calculations make no sense anymore (just look at $m^*$). \\ \newline
+	One thing to note, too, is that the time constant for the Bloch oscilations is much larger than other time constants of the crystal (defects, backscattering, \dots), i.e., $\tau_B >> \tau_{scatt}$ meaning one doesn't see these Bloch oscilations before a full oscilation of the $k$ value.
+}
+
+\subsection{Importance of holes}
+Say we have a full VB, then the total crystal momentum is $$\vec{P}_{C, VB}^{tot} = \vec{0} = \sum_{\vec{k}, VB}\hbar\vec{k}$$
+Now if we introduce one empty state at $\vec{k}_0$, i.e., a hole, we get the following momentum $$\vec{P}_{C, VB}^{tot} = \sum_{\vec{k}, VB}\hbar\vec{k} - \hbar\vec{k}_0 = \vec{0} - \hbar\vec{k}_0 = - \hbar\vec{k}_0$$
+Then a hole can be defined to have a crystal momentum of $$\vec{P}_{C, VB} = - \hbar\vec{k}_0$$
+
+\subsubsection{Movement of holes and electrons}
+If we look at the semi-classical description for the external force acting on the electrons/holes, we see for an electron the following description
+\begin{align}
+	\hbar\frac{\delta \vec{k}_{electron}}{\delta t} &= \vec{F}_{ext} \label{eqn:mov_elec_vgl} \\
+	&= -e(\vec{E} + \vec{v}\times\vec{B})
+\end{align}
+Then, if we define $\vec{k}_h = -\vec{k}_{electron}$ for a hole, we get
+\begin{align}
+	\hbar\frac{\delta (- \vec{k}_{electron})}{\delta t} &= -\vec{F}_{ext} \\
+	\hbar\frac{\delta \vec{k}_{h}}{\delta t} &= -\vec{F}_{ext, h} \label{eqn:mov_hole_vgl} \\
+	&= e(\vec{E} + \vec{v}\times\vec{B})
+\end{align}
+If we would now look at the equivalent Newton equation for electrons, we'd get (from equation \ref{eqn:mov_elec_vgl}) $$\vec{a} = \vec{m^*}^{-1}\cdot\vec{F}_{ext}$$
+To define the one of holes we will introduce (as we did in previous sections) the hole effective mass: $\vec{m^*}^{-1}_h = -\vec{m^*}^{-1}$. In order that from equation \ref{eqn:mov_hole_vgl}, we'd get $$\vec{a} = -\vec{m^*}^{-1}_h\cdot\vec{F}_{ext}$$ $$\vec{a} = \vec{m^*}^{-1}_h\cdot\vec{F}_{ext, h}$$
+Thus the acceleration for holes and electrons is the same (i.e., mass times force), just instead of heaving negative particles, we have positive particles for holes.
+\nt{$\vec{v}\times\vec{B}$ is the Lorentz force acting on the crystal}
