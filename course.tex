@@ -1,0 +1,55 @@
+\documentclass[a4paper]{book}
+
+\input{latex_template/preamble}
+\input{latex_template/macros}
+\input{latex_template/letterfonts}
+
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{titlesec}
+
+\usepackage{xcolor}
+\definecolor{titlepagecolor}{RGB}{0, 60, 110}
+\definecolor{namecolor}{cmyk}{1,.50,0,.10}
+
+\usepackage{geometry}
+\geometry{
+	bindingoffset=-1cm
+}
+
+\title{Semiconductor Physics}}
+\author{Matthias Monden}
+\date{30-12-2022}
+\makeatletter
+
+\begin{document}
+
+% \maketitle
+\input{./titlepage.tex}
+\newpage% or \cleardoublepage
+\newpage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+\pdfbookmark[section]{\contentsname}{toc}
+\newpage
+
+\tableofcontents
+\newpage
+\pagebreak
+
+\input{./chapter1.tex}
+\input{./chapter2.tex}
+\input{./chapter3.tex}
+\input{./chapter4.tex}
+\input{./chapter5.tex}
+\input{./chapter6.tex}
+\input{./chapter7.tex}
+\input{./chapter8.tex}
+\input{./chapter9.tex}
+\input{./chapter10.tex}
+\input{./chapter11.tex}
+\input{./chapter12.tex}
+\input{./chapter13.tex}
+
+% \input{./cover.tex}
+
+\end{document}

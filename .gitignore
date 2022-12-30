@@ -17,5 +17,4 @@
 ./Commands.txt
 ./*.kdev4
 ./*.kateproject
-./.kdev4
-./latex_template
+./.kdev4/
