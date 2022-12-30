@@ -18,12 +18,19 @@ Then we can derive the following:
 \begin{align}
 	\hat{H}\psi_{n, \vec{k}}(\vec{r}) &= E_n(\vec{k})\psi_{n, \vec{k}}(\vec{r})\\
 	\psi_{n, \vec{k}}(\vec{r}) &= u_{n, \vec{k}}(\vec{r})e^{i\vec{k}\cdot\vec{r}} \label{eqn:psi_bloch}\\
-	\hat{\vec{p}}\psi_{n, \vec{k}}(\vec{r}) &= -i\hbar\vec{\nabla}\left[u_{n, \vec{k}}(\vec{r})e^{i\vec{k}\cdot\vec{r}}\right] \qquad \text{using: \ref{eqn:brogli_relation} and \ref{eqn:psi_bloch}}\\
+	\hat{\vec{p}}\psi_{n, \vec{k}}(\vec{r}) &= -i\hbar\vec{\nabla}\left[u_{n, \vec{k}}(\vec{r})e^{i\vec{k}\cdot\vec{r}}\right] \qquad \text{using: \ref{eqn:brogli_relation} and \ref{eqn:psi_bloch}}
 \end{align}
-How do we interpret the $\vec{k}$? Let's define crystal momentum as follows:
+How do we interpret the $\vec{k}$? In the study of solid-state physics, the wave vector $\vec{k}$ is an important parameter that determines the behavior of electrons in a crystal lattice. A crystal lattice is an arrangement of atoms or molecules in a repeating, periodic pattern in three-dimensional space. The atoms or molecules in a crystal lattice are held together by strong chemical bonds, and the repeating pattern of the lattice allows for the existence of energy bands and energy gaps. According to Bloch's theorem, steady state solutions of the Schrödinger equation for an electron in a crystal lattice can be identified with a wave vector $\vec{k}$, which remains a constant of motion. \\ \par
+The crystal momentum of an electron in a crystal lattice is defined as follows:
 \begin{equation}
 	\vec{P} = \hbar\vec{k}
 \end{equation}
+This definition is similar to the definition of regular momentum, but there are important differences between the two. While regular momentum is completely conserved, crystal momentum is only conserved to within a lattice vector. This means that an electron can be described not only by a single wave vector $\vec{k}$, but also by any other wave vector $\vec{k}'$ such that:
+\begin{equation}
+\vec{k}' = \vec{k} + \vec{K}
+\end{equation}
+where $\vec{K}$ is an arbitrary reciprocal lattice vector. This is a consequence of the fact that the lattice symmetry in a crystal is discrete rather than continuous. \\ \par
+The wave vector $\vec{k}$ and the crystal momentum $\vec{P}$ are important for understanding the transport properties of electrons in a crystal, such as their electrical conductivity. They are also important for designing and optimizing semiconductor devices, such as transistors and solar cells.
 \nt{Don't confuse $\vec{P}$ with $\vec{p}$. For a Bloch electron we cannot say that $\vec{p} = \hbar\vec{k}$.}
 
 Because real space is infinite, we need some boundary condiditions to confine our space.
