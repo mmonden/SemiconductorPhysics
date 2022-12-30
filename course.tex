@@ -26,9 +26,10 @@
 
 % \maketitle
 \input{./titlepage.tex}
-\newpage% or \cleardoublepage
-~\newpage
-
+\afterpage{
+\pagestyle{empty}\newpage~
+}
+\setcounter{page}{1}
 % \pdfbookmark[<level>]{<title>}{<dest>}
 \pdfbookmark[section]{\contentsname}{toc}
 \newpage
@@ -36,6 +37,7 @@
 \tableofcontents
 \newpage
 \pagebreak
+
 
 \input{./chapter1.tex}
 \input{./chapter2.tex}
